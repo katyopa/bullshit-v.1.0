@@ -3,6 +3,10 @@ import logging
 import yaml
 import pickle
 import urllib.request
+from bs4 import BeautifulSoup
+from html.parser import HTMLParser
+import os
+from collections import Counter
 
 
 def add_protocol_to_url(url):
@@ -10,8 +14,7 @@ def add_protocol_to_url(url):
     if not urlparse(url).scheme:
         url = 'http://' + url
 
-    url
-    return(url)
+    return url
 
 
 # parse yaml-file
@@ -24,11 +27,11 @@ def parse_yaml_file():
 
 # unpickle results from DB
 def unpickle_db_results(results):
-    unpickled_list = (pickle.loads(results, fix_imports=True,
-                                   encoding="ASCII", errors="strict",
-                                   buffers=None))
+    unpickled_list = pickle.loads(results, fix_imports=True,
+                                  encoding="ASCII", errors="strict",
+                                  buffers=None)
     print(unpickled_list)
-    return(unpickled_list)
+    return unpickled_list
 
 
 class ContaTags:
@@ -48,9 +51,7 @@ class ContaTags:
         if not urlparse(url).scheme:
             url = 'http://' + url
 
-        url
-
-        logging.info(url)       # use declared url variable
+        logging.info(url)  # use declared url variable
 
         # download html content: request - response
         response = urllib.request.urlopen(url)  # use url variable
@@ -61,9 +62,6 @@ class ContaTags:
         f.write(webContent)
         f.close
 
-        from bs4 import BeautifulSoup
-        from html.parser import HTMLParser
-
         class MyHTMLParser(HTMLParser):
             def handle_starttag(self, tag, attrs):
                 count.append(tag)
@@ -71,15 +69,13 @@ class ContaTags:
             def handle_endtag(self, tag):
                 count.append(tag)
 
-        import os
-
         parser = MyHTMLParser()
 
         for file in os.listdir(path=os.getcwd()):
             if file.endswith(".html"):
                 self.arquivos.append(file)
 
-                caminho = (os.getcwd() + "\\" + file)
+                caminho = os.getcwd() + "\\" + file
 
                 doc = open(caminho, "r", encoding="utf8")
                 soup = BeautifulSoup(doc, 'html.parser')
@@ -88,8 +84,6 @@ class ContaTags:
                 parser.feed(soup.prettify())
 
                 self.tags.append(count)
-
-        from collections import Counter
 
         z = []
 

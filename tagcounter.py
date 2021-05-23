@@ -8,18 +8,17 @@ from datetime import datetime
 import tkinter as tk
 
 
-
 # add logging
 if __name__ == '__main__':
-    (logging.basicConfig(level=logging.INFO,
-                             filename='tagcounter_log.log',
-                             filemode='a',
-                             format='%(asctime)s  - %(message)s'))
+    logging.basicConfig(level=logging.INFO,
+                        filename='tagcounter_log.log',
+                        filemode='a',
+                        format='%(asctime)s  - %(message)s')
 
 
 # Create the parser
-my_parser = (argparse.ArgumentParser(prog='tagcounter',
-                                     description='Count tags of an html-file'))
+my_parser = argparse.ArgumentParser(prog='tagcounter',
+                                    description='Count tags of an html-file')
 
 # Add the arguments
 my_parser.add_argument('--get',
@@ -51,9 +50,9 @@ if args.get is not None:
 
     # Pickle the Python object: convert the object into a byte stream
 
-    pickled_cmd_tagcount_dict = (pickle.dumps(cmd_tagcount_dict,
-                                              protocol=None,
-                                              fix_imports=True))
+    pickled_cmd_tagcount_dict = pickle.dumps(cmd_tagcount_dict,
+                                             protocol=None,
+                                             fix_imports=True)
 
     # extract 2nd level domain name: 'google' (передаем туда весь урл (ошибка))
     site = get_tld(fc.url, as_object=True)
@@ -65,21 +64,21 @@ if args.get is not None:
     check_result = connection.execute(check).scalar()  # returns True / False
 
     if check_result:
-        update_data = (tagcounter_db.update()
-                       .where(tagcounter_db.c.url == fc.url)
-                       .values(site_name=domain,
-                               url=fc.url,
-                               date_time=datetime.now(),
-                               tagcount=pickled_cmd_tagcount_dict))
+        update_data = tagcounter_db.update().where(tagcounter_db.c.url
+                                                   == fc.url).values(
+                                                   site_name=domain,
+                                                   url=fc.url,
+                                                   date_time=datetime.now(),
+                                                   tagcount=pickled_cmd_tagcount_dict)
 
         connection.execute(update_data)
         print("Data successfully updated!")
     else:
-        insert_data = (tagcounter_db.insert()
-                       .values(site_name=domain,
-                               url=fc.url,
-                               date_time=datetime.now(),
-                               tagcount=pickled_cmd_tagcount_dict))
+        insert_data = tagcounter_db.insert().values(
+                      site_name=domain,
+                      url=fc.url,
+                      date_time=datetime.now(),
+                      tagcount=pickled_cmd_tagcount_dict)
 
         connection.execute(insert_data)
         print("Data successfully loaded into Database!")
@@ -136,8 +135,7 @@ elif args.view is None and args.get is None:
         gui_unpickled_result = fc.unpickle_db_results(gui_results)
 
         output.delete(1.0, tk.END)  # clean the output box before insert
-        result_load_from_db = ("{}: ".format(txt.get())
-                               + str(gui_unpickled_result))
+        result_load_from_db = "{}: ".format(txt.get()) + str(gui_unpickled_result)
         output.insert(tk.END, result_load_from_db)
         statusbar.configure(text="I've counted tags for you!")
 
@@ -152,8 +150,7 @@ elif args.view is None and args.get is None:
         # print(gui_user_input_inet)
         gui_tagcount_dict = SampleObject.run()
 
-        result_load_from_internet = ("{}: ".format(txt.get())
-                                     + str(gui_tagcount_dict))
+        result_load_from_internet = "{}: ".format(txt.get()) + str(gui_tagcount_dict)
         output.delete(1.0, tk.END)  # clean the output box before insert
         output.insert(tk.END, result_load_from_internet)
         statusbar.configure(text="I've counted tags for you!")
@@ -163,25 +160,25 @@ elif args.view is None and args.get is None:
     window.geometry('600x450')
 
     text = tk.Label(window, text="Enter url, please")
-    (text.grid(column=1,
-               row=0,
-               columnspan=2,
-               sticky=tk.E,
-               pady=10,
-               padx=10))
+    text.grid(column=1,
+              row=0,
+              columnspan=2,
+              sticky=tk.E,
+              pady=10,
+              padx=10)
 
     txt = tk.Entry(window, width=30)
     txt.focus()
-    (txt.grid(column=3,
-              row=0,
-              columnspan=2,
-              sticky=tk.W+tk.E,
-              pady=10,
-              padx=10))
+    txt.grid(column=3,
+             row=0,
+             columnspan=2,
+             sticky=tk.W+tk.E,
+             pady=10,
+             padx=10)
 
-    btn_internet = (tk.Button(window,
-                              text="Download From Internet",
-                              command=load_from_internet))
+    btn_internet = tk.Button(window,
+                             text="Download From Internet",
+                             command=load_from_internet)
     btn_internet.grid(column=4, row=3, padx=10, pady=10, sticky=tk.E)
 
     btn_db = tk.Button(window, text="Show From DB", command=load_from_db)
@@ -194,10 +191,10 @@ elif args.view is None and args.get is None:
     scroll.grid(column=5, row=4)
     output.config(yscrollcommand=scroll.set)
 
-    statusbar = (tk.Label(window,
-                          text="waiting for the url…",
-                          bd=1, relief=tk.SUNKEN,
-                          anchor=tk.W))
+    statusbar = tk.Label(window,
+                         text="waiting for the url…",
+                         bd=1, relief=tk.SUNKEN,
+                         anchor=tk.W)
     (statusbar.grid(column=0,
                     row=6,
                     columnspan=5,

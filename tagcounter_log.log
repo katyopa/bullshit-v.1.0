@@ -36,3 +36,20 @@ WHERE tagcounter_db.url = ?
 2021-05-23 21:12:30,497  - UPDATE tagcounter_db SET site_name=?, url=?, date_time=?, tagcount=? WHERE tagcounter_db.url = ?
 2021-05-23 21:12:30,502  - [generated in 0.00514s] ('yandex', 'http://yandex.ru', datetime.datetime(2021, 5, 23, 21, 12, 30, 496429), b'\x80\x04\x95\xf9\x00\x00\x00\x00\x00\x00\x00}\x94(\x8c\x04html\x94K\x02\x8c\x04head\x94K\x02\x8c\x04meta\x94K"\x8c\x05title\x94K\x02\x8c\x04link\x94 ... (330 characters truncated) ... c\x02td\x94K\x06\x8c\x03nav\x94K\x02\x8c\x03fgn\x94K\x02\x8c\x04form\x94K\x02\x8c\x05input\x94K\x06\x8c\x06button\x94K\x04\x8c\x08noscript\x94K\x06u.', 'http://yandex.ru')
 2021-05-23 21:12:30,522  - COMMIT
+2021-05-23 22:25:25,157  - http://yandex.ru
+2021-05-23 22:25:27,257  - SELECT tagcounter_db.site_name, tagcounter_db.url, tagcounter_db.date_time, tagcounter_db.tagcount 
+FROM tagcounter_db 
+WHERE tagcounter_db.url = ?
+2021-05-23 22:25:27,258  - [generated in 0.00042s] ('http://yandex.ru',)
+2021-05-23 22:25:27,261  - UPDATE tagcounter_db SET site_name=?, url=?, date_time=?, tagcount=? WHERE tagcounter_db.url = ?
+2021-05-23 22:25:27,261  - [generated in 0.00038s] ('yandex', 'http://yandex.ru', datetime.datetime(2021, 5, 23, 22, 25, 27, 260261), b'\x80\x04\x95\xfa\x00\x00\x00\x00\x00\x00\x00}\x94(\x8c\x04html\x94K\x02\x8c\x04head\x94K\x02\x8c\x04meta\x94K"\x8c\x05title\x94K\x02\x8c\x04link\x94 ... (331 characters truncated) ... \x02td\x94K\x06\x8c\x03nav\x94K\x02\x8c\x04fwap\x94K\x02\x8c\x04form\x94K\x02\x8c\x05input\x94K\x06\x8c\x06button\x94K\x04\x8c\x08noscript\x94K\x06u.', 'http://yandex.ru')
+2021-05-23 22:25:27,288  - COMMIT
+2021-05-23 22:25:30,834  - SELECT tagcounter_db.tagcount 
+FROM tagcounter_db 
+WHERE tagcounter_db.url = ?
+2021-05-23 22:25:30,835  - [generated in 0.00045s] ('http://yandex.ru',)
+2021-05-23 22:25:38,472  - SELECT tagcounter_db.tagcount 
+FROM tagcounter_db 
+WHERE tagcounter_db.url = ?
+2021-05-23 22:25:38,473  - [generated in 0.00063s] ('http://google.com',)
+2021-05-23 22:25:39,863  - http://google.com

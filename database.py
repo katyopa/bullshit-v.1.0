@@ -17,6 +17,7 @@ tagcounter_db = sql.Table('tagcounter_db', metadata,
 
 metadata.create_all(engine)
 
+
 # connect to DB and execute select
 def select_from_db(full_url):
     select_data = (sql.select(tagcounter_db.c.tagcount).where
