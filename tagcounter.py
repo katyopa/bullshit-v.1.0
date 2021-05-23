@@ -1,8 +1,21 @@
-from database import engine, tagcounter_db
+from database import engine, tagcounter_db, select_from_db
 import functions as fc
-
-# Import the argparse library
+import logging
 import argparse
+import pickle
+from tld import get_tld
+from datetime import datetime
+import tkinter as tk
+
+
+
+# add logging
+if __name__ == '__main__':
+    (logging.basicConfig(level=logging.INFO,
+                             filename='tagcounter_log.log',
+                             filemode='a',
+                             format='%(asctime)s  - %(message)s'))
+
 
 # Create the parser
 my_parser = (argparse.ArgumentParser(prog='tagcounter',
@@ -37,19 +50,16 @@ if args.get is not None:
     cmd_tagcount_dict = Sample.run()  # returns a dictionary object
 
     # Pickle the Python object: convert the object into a byte stream
-    import pickle
 
     pickled_cmd_tagcount_dict = (pickle.dumps(cmd_tagcount_dict,
                                               protocol=None,
                                               fix_imports=True))
 
     # extract 2nd level domain name: 'google' (передаем туда весь урл (ошибка))
-    from tld import get_tld
     site = get_tld(fc.url, as_object=True)
     domain = site.domain
 
     # check data in tags.db: update if exists, insert if not
-    from datetime import datetime
     connection = engine.connect()
     check = tagcounter_db.select().where(tagcounter_db.c.url == fc.url)
     check_result = connection.execute(check).scalar()  # returns True / False
@@ -91,7 +101,7 @@ elif args.view is not None:
     full_url = fc.add_protocol_to_url(user_input)
 
     # connect to DB and execute select
-    results = fc.select_from_db(full_url)
+    results = select_from_db(full_url)
 
     # unpickle results from DB
     # extract pickled object from the results list
@@ -102,7 +112,6 @@ elif args.view is not None:
 
 # tagcounter
 elif args.view is None and args.get is None:
-    import tkinter as tk
 
     def load_from_db():
 
@@ -118,7 +127,7 @@ elif args.view is None and args.get is None:
         gui_full_url = fc.add_protocol_to_url(gui_user_input)
 
         # select from DB
-        gui_results = fc.select_from_db(gui_full_url)
+        gui_results = select_from_db(gui_full_url)
 
         # unpickle results from DB
         # print(results)
@@ -134,7 +143,6 @@ elif args.view is None and args.get is None:
 
     def load_from_internet():
         gui_user_input_inet = txt.get()
-        import functions as fc
 
         if gui_user_input_inet in parsed_yaml_file.keys():
             SampleObject = fc.ContaTags(parsed_yaml_file[gui_user_input_inet])

@@ -1,11 +1,12 @@
-from sqlalchemy import select
-import database as db
+from urllib.parse import urlparse
+import logging
+import yaml
+import pickle
+import urllib.request
 
 
-# add http:// protocol to url
 def add_protocol_to_url(url):
-    from urllib.parse import urlparse
-
+    """Add http:// protocol to url."""
     if not urlparse(url).scheme:
         url = 'http://' + url
 
@@ -15,28 +16,14 @@ def add_protocol_to_url(url):
 
 # parse yaml-file
 def parse_yaml_file():
-    import yaml
 
     a_yaml_file = open("synonyms.yaml")
     parsed_yaml_file = yaml.load(a_yaml_file, Loader=yaml.FullLoader)
     return parsed_yaml_file
 
 
-# connect to DB and execute select
-def select_from_db(full_url):
-    select_data = (select(db.tagcounter_db.c.tagcount).where
-                   (db.tagcounter_db.c.url == full_url))
-
-    connection = db.engine.connect()
-
-    results = connection.execute(select_data).fetchall()
-    connection.close()
-    return results
-
-
 # unpickle results from DB
 def unpickle_db_results(results):
-    import pickle
     unpickled_list = (pickle.loads(results, fix_imports=True,
                                    encoding="ASCII", errors="strict",
                                    buffers=None))
@@ -55,7 +42,6 @@ class ContaTags:
     def run(self):
 
         # check if we enter a URL without the protocol
-        from urllib.parse import urlparse
 
         global url        # переменную сделаем глобальной
         url = self.url                  # declared a variable
@@ -64,18 +50,9 @@ class ContaTags:
 
         url
 
-        # add logging
-        import logging
-        # filemode='a' - append, добавление
-        (logging.basicConfig(level=logging.INFO,
-                             filename='tagcounter_log.log',
-                             filemode='a',
-                             format='%(asctime)s  - %(message)s'))
-
         logging.info(url)       # use declared url variable
 
         # download html content: request - response
-        import urllib.request
         response = urllib.request.urlopen(url)  # use url variable
         webContent = response.read()
 

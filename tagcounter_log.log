@@ -1,0 +1,38 @@
+2021-05-23 21:10:11,755  - SELECT tagcounter_db.tagcount 
+FROM tagcounter_db 
+WHERE tagcounter_db.url = ?
+2021-05-23 21:10:11,757  - [generated in 0.00084s] ('http://google.com',)
+2021-05-23 21:10:13,460  - http://google.com
+2021-05-23 21:10:53,566  - SELECT tagcounter_db.tagcount 
+FROM tagcounter_db 
+WHERE tagcounter_db.url = ?
+2021-05-23 21:10:53,566  - [cached since 41.81s ago] ('https://google.com',)
+2021-05-23 21:11:05,122  - SELECT tagcounter_db.tagcount 
+FROM tagcounter_db 
+WHERE tagcounter_db.url = ?
+2021-05-23 21:11:05,122  - [cached since 53.37s ago] ('http://google.com',)
+2021-05-23 21:11:07,288  - http://google.com
+2021-05-23 21:11:49,308  - http://yandex.ru
+2021-05-23 21:11:51,791  - SELECT tagcounter_db.site_name, tagcounter_db.url, tagcounter_db.date_time, tagcounter_db.tagcount 
+FROM tagcounter_db 
+WHERE tagcounter_db.url = ?
+2021-05-23 21:11:51,791  - [generated in 0.00043s] ('http://yandex.ru',)
+2021-05-23 21:11:51,794  - INSERT INTO tagcounter_db (site_name, url, date_time, tagcount) VALUES (?, ?, ?, ?)
+2021-05-23 21:11:51,800  - [generated in 0.00577s] ('yandex', 'http://yandex.ru', datetime.datetime(2021, 5, 23, 21, 11, 51, 793871), b'\x80\x04\x95\x02\x01\x00\x00\x00\x00\x00\x00}\x94(\x8c\x04html\x94K\x02\x8c\x04head\x94K\x02\x8c\x04meta\x94K"\x8c\x05title\x94K\x02\x8c\x04link\x94 ... (351 characters truncated) ... x03nav\x94K\x02\x8c\x04fwap\x94K\x02\x8c\x03fgn\x94K\x04\x8c\x04form\x94K\x02\x8c\x05input\x94K\x06\x8c\x06button\x94K\x04\x8c\x08noscript\x94K\x06u.')
+2021-05-23 21:11:51,801  - COMMIT
+2021-05-23 21:12:08,642  - SELECT tagcounter_db.tagcount 
+FROM tagcounter_db 
+WHERE tagcounter_db.url = ?
+2021-05-23 21:12:08,643  - [generated in 0.00050s] ('http://yandex.ru',)
+2021-05-23 21:12:18,676  - SELECT tagcounter_db.tagcount 
+FROM tagcounter_db 
+WHERE tagcounter_db.url = ?
+2021-05-23 21:12:18,677  - [generated in 0.00048s] ('http://yandex.ru',)
+2021-05-23 21:12:27,656  - http://yandex.ru
+2021-05-23 21:12:30,493  - SELECT tagcounter_db.site_name, tagcounter_db.url, tagcounter_db.date_time, tagcounter_db.tagcount 
+FROM tagcounter_db 
+WHERE tagcounter_db.url = ?
+2021-05-23 21:12:30,494  - [generated in 0.00043s] ('http://yandex.ru',)
+2021-05-23 21:12:30,497  - UPDATE tagcounter_db SET site_name=?, url=?, date_time=?, tagcount=? WHERE tagcounter_db.url = ?
+2021-05-23 21:12:30,502  - [generated in 0.00514s] ('yandex', 'http://yandex.ru', datetime.datetime(2021, 5, 23, 21, 12, 30, 496429), b'\x80\x04\x95\xf9\x00\x00\x00\x00\x00\x00\x00}\x94(\x8c\x04html\x94K\x02\x8c\x04head\x94K\x02\x8c\x04meta\x94K"\x8c\x05title\x94K\x02\x8c\x04link\x94 ... (330 characters truncated) ... c\x02td\x94K\x06\x8c\x03nav\x94K\x02\x8c\x03fgn\x94K\x02\x8c\x04form\x94K\x02\x8c\x05input\x94K\x06\x8c\x06button\x94K\x04\x8c\x08noscript\x94K\x06u.', 'http://yandex.ru')
+2021-05-23 21:12:30,522  - COMMIT
