@@ -1,0 +1,14 @@
+beautifulsoup4==4.9.3
+bs4==0.0.1
+certifi==2020.12.5
+chardet==4.0.0
+greenlet==1.1.0
+idna==2.10
+main @ file:///C:/Users/Katsiaryna_Lastouska/Documents/Learn%20To%20Code%20Python/main-1.0.tar.gz
+PyYAML==5.4.1
+requests==2.25.1
+soupsieve==2.2.1
+SQLAlchemy==1.4.14
+tabulate==0.8.9
+tld==0.12.5
+urllib3==1.26.4
