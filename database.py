@@ -22,9 +22,7 @@ metadata.create_all(engine)
 def select_from_db(full_url):
     select_data = (sql.select(tagcounter_db.c.tagcount).where
                    (tagcounter_db.c.url == full_url))
-
     connection = engine.connect()
-
     results = connection.execute(select_data).fetchall()
     connection.close()
     return results
