@@ -106,3 +106,110 @@ WHERE tagcounter_db.url = ?
 FROM tagcounter_db 
 WHERE tagcounter_db.url = ?
 2021-05-24 00:22:46,622  - [generated in 0.00061s] ('http://python.org',)
+2021-05-24 13:11:43,928  - http://multitran.ru
+2021-05-24 13:11:45,466  - SELECT tagcounter_db.site_name, tagcounter_db.url, tagcounter_db.date_time, tagcounter_db.tagcount 
+FROM tagcounter_db 
+WHERE tagcounter_db.url = ?
+2021-05-24 13:11:45,466  - [generated in 0.00028s] ('http://multitran.ru',)
+2021-05-24 13:11:45,473  - INSERT INTO tagcounter_db (site_name, url, date_time, tagcount) VALUES (?, ?, ?, ?)
+2021-05-24 13:11:45,473  - [generated in 0.00024s] ('multitran', 'http://multitran.ru', datetime.datetime(2021, 5, 24, 13, 11, 45, 472984), b'\x80\x04\x95\xeb\x00\x00\x00\x00\x00\x00\x00}\x94(\x8c\x04head\x94K\x02\x8c\x04meta\x94K\x08\x8c\x06script\x94K \x8c\x05title\x94K\x02\x8c\x04link\x ... (271 characters truncated) ... \x02br\x94K*\x8c\x04font\x94K\x02\x8c\x02h3\x94K\x02\x8c\x01u\x94K\x04\x8c\x03ins\x94K\x04\x8c\x0cright_banner\x94K\x02\x8c\x0bleft_banner\x94K\x02u.')
+2021-05-24 13:11:45,476  - COMMIT
+2021-05-24 13:13:59,736  - http://w3schools.com
+2021-05-24 13:14:01,601  - SELECT tagcounter_db.site_name, tagcounter_db.url, tagcounter_db.date_time, tagcounter_db.tagcount 
+FROM tagcounter_db 
+WHERE tagcounter_db.url = ?
+2021-05-24 13:14:01,601  - [generated in 0.00028s] ('http://w3schools.com',)
+2021-05-24 13:14:01,604  - INSERT INTO tagcounter_db (site_name, url, date_time, tagcount) VALUES (?, ?, ?, ?)
+2021-05-24 13:14:01,609  - [generated in 0.00508s] ('w3schools', 'http://w3schools.com', datetime.datetime(2021, 5, 24, 13, 14, 1, 603096), b'\x80\x04\x95\x04\x01\x00\x00\x00\x00\x00\x00}\x94(\x8c\x04html\x94K\x02\x8c\x04head\x94K\x02\x8c\x05title\x94K\x02\x8c\x04meta\x94K\x06\x8c\x04link\ ... (354 characters truncated) ... 8c\x03svg\x94K\x04\x8c\x04path\x94K\x08\x8c\x04defs\x94K\x02\x8c\x06circle\x94K\x02\x8c\x04text\x94K8\x8c\x06iframe\x94K\x04\x8c\x06footer\x94K\x02u.')
+2021-05-24 13:14:01,612  - COMMIT
+2021-05-24 13:15:57,863  - http://udemy.com
+2021-05-24 13:16:00,029  - SELECT tagcounter_db.site_name, tagcounter_db.url, tagcounter_db.date_time, tagcounter_db.tagcount 
+FROM tagcounter_db 
+WHERE tagcounter_db.url = ?
+2021-05-24 13:16:00,030  - [generated in 0.00030s] ('http://udemy.com',)
+2021-05-24 13:16:00,033  - INSERT INTO tagcounter_db (site_name, url, date_time, tagcount) VALUES (?, ?, ?, ?)
+2021-05-24 13:16:00,038  - [generated in 0.00517s] ('udemy', 'http://udemy.com', datetime.datetime(2021, 5, 24, 13, 16, 0, 32467), b'\x80\x04\x95,\x01\x00\x00\x00\x00\x00\x00}\x94(\x8c\x04html\x94K\x02\x8c\x04head\x94K\x02\x8c\x05title\x94K\x02\x8c\x04meta\x94KF\x8c\x05style\x94K\ ... (426 characters truncated) ... 0c\x8c\x02h3\x94K\x06\x8c\x06footer\x94K\x02\x8c\x04defs\x94K\x06\x8c\x06symbol\x94KJ\x8c\x04path\x94KL\x8c\x04rect\x94K\x02\x8c\x06circle\x94K\x02u.')
+2021-05-24 13:16:00,039  - COMMIT
+2021-05-24 13:16:36,599  - SELECT tagcounter_db.tagcount 
+FROM tagcounter_db 
+WHERE tagcounter_db.url = ?
+2021-05-24 13:16:36,599  - [generated in 0.00034s] ('http://udemy.com',)
+2021-05-24 14:55:56,129  - SELECT tagcounter_db.tagcount 
+FROM tagcounter_db 
+WHERE tagcounter_db.url = ?
+2021-05-24 14:55:56,130  - [generated in 0.00029s] ('http://udemy.com',)
+2021-05-24 14:56:06,503  - http://udemy.com
+2021-05-24 14:56:08,256  - SELECT tagcounter_db.site_name, tagcounter_db.url, tagcounter_db.date_time, tagcounter_db.tagcount 
+FROM tagcounter_db 
+WHERE tagcounter_db.url = ?
+2021-05-24 14:56:08,256  - [generated in 0.00032s] ('http://udemy.com',)
+2021-05-24 14:56:08,259  - UPDATE tagcounter_db SET site_name=?, url=?, date_time=?, tagcount=? WHERE tagcounter_db.url = ?
+2021-05-24 14:56:08,264  - [generated in 0.00499s] ('udemy', 'http://udemy.com', datetime.datetime(2021, 5, 24, 14, 56, 8, 258981), b'\x80\x04\x95,\x01\x00\x00\x00\x00\x00\x00}\x94(\x8c\x04html\x94K\x02\x8c\x04head\x94K\x02\x8c\x05title\x94K\x02\x8c\x04meta\x94KF\x8c\x05style\x94K\ ... (426 characters truncated) ... 0c\x8c\x02h3\x94K\x06\x8c\x06footer\x94K\x02\x8c\x04defs\x94K\x06\x8c\x06symbol\x94KJ\x8c\x04path\x94KL\x8c\x04rect\x94K\x02\x8c\x06circle\x94K\x02u.', 'http://udemy.com')
+2021-05-24 14:56:08,267  - COMMIT
+2021-05-24 15:02:39,772  - http://udemy.com
+2021-05-24 15:02:41,287  - SELECT tagcounter_db.site_name, tagcounter_db.url, tagcounter_db.date_time, tagcounter_db.tagcount 
+FROM tagcounter_db 
+WHERE tagcounter_db.url = ?
+2021-05-24 15:02:41,287  - [generated in 0.00028s] ('http://udemy.com',)
+2021-05-24 15:02:41,290  - UPDATE tagcounter_db SET site_name=?, url=?, date_time=?, tagcount=? WHERE tagcounter_db.url = ?
+2021-05-24 15:02:41,295  - [generated in 0.00487s] ('udemy', 'http://udemy.com', datetime.datetime(2021, 5, 24, 15, 2, 41, 289354), b'\x80\x04\x95,\x01\x00\x00\x00\x00\x00\x00}\x94(\x8c\x04html\x94K\x02\x8c\x04head\x94K\x02\x8c\x05title\x94K\x02\x8c\x04meta\x94KF\x8c\x05style\x94K\ ... (426 characters truncated) ... 0c\x8c\x02h3\x94K\x06\x8c\x06footer\x94K\x02\x8c\x04defs\x94K\x06\x8c\x06symbol\x94KJ\x8c\x04path\x94KL\x8c\x04rect\x94K\x02\x8c\x06circle\x94K\x02u.', 'http://udemy.com')
+2021-05-24 15:02:41,298  - COMMIT
+2021-05-24 15:02:50,958  - SELECT tagcounter_db.tagcount 
+FROM tagcounter_db 
+WHERE tagcounter_db.url = ?
+2021-05-24 15:02:50,958  - [generated in 0.00033s] ('http://google.com',)
+2021-05-24 15:02:53,063  - http://google.com
+2021-05-24 15:03:00,579  - http://yandex.ru
+2021-05-24 15:13:59,897  - SELECT tagcounter_db.tagcount 
+FROM tagcounter_db 
+WHERE tagcounter_db.url = ?
+2021-05-24 15:13:59,898  - [generated in 0.00038s] ('http://yandex.ru',)
+2021-05-24 15:14:11,598  - http://yandex.ru
+2021-05-24 15:14:13,208  - SELECT tagcounter_db.site_name, tagcounter_db.url, tagcounter_db.date_time, tagcounter_db.tagcount 
+FROM tagcounter_db 
+WHERE tagcounter_db.url = ?
+2021-05-24 15:14:13,208  - [generated in 0.00029s] ('http://yandex.ru',)
+2021-05-24 15:14:13,211  - UPDATE tagcounter_db SET site_name=?, url=?, date_time=?, tagcount=? WHERE tagcounter_db.url = ?
+2021-05-24 15:14:13,216  - [generated in 0.00482s] ('yandex', 'http://yandex.ru', datetime.datetime(2021, 5, 24, 15, 14, 13, 210086), b'\x80\x04\x95\x04\x01\x00\x00\x00\x00\x00\x00}\x94(\x8c\x04html\x94K\x02\x8c\x04head\x94K\x02\x8c\x04meta\x94K"\x8c\x05title\x94K\x02\x8c\x04link\x94 ... (348 characters truncated) ... nav\x94K\x02\x8c\x06fdpprt\x94K\x02\x8c\x04fwap\x94K\x02\x8c\x04form\x94K\x02\x8c\x05input\x94K\x06\x8c\x06button\x94K\x04\x8c\x08noscript\x94K\x06u.', 'http://yandex.ru')
+2021-05-24 15:14:13,219  - COMMIT
+2021-05-24 15:17:50,149  - http://yandex.ru
+2021-05-24 15:17:52,057  - SELECT tagcounter_db.site_name, tagcounter_db.url, tagcounter_db.date_time, tagcounter_db.tagcount 
+FROM tagcounter_db 
+WHERE tagcounter_db.url = ?
+2021-05-24 15:17:52,058  - [generated in 0.00029s] ('http://yandex.ru',)
+2021-05-24 15:17:52,060  - UPDATE tagcounter_db SET site_name=?, url=?, date_time=?, tagcount=? WHERE tagcounter_db.url = ?
+2021-05-24 15:17:52,065  - [generated in 0.00501s] ('yandex', 'http://yandex.ru', datetime.datetime(2021, 5, 24, 15, 17, 52, 59111), b'\x80\x04\x95\x03\x01\x00\x00\x00\x00\x00\x00}\x94(\x8c\x04html\x94K\x02\x8c\x04head\x94K\x02\x8c\x04meta\x94K"\x8c\x05title\x94K\x02\x8c\x04link\x94 ... (347 characters truncated) ... 3nav\x94K\x02\x8c\x05eflll\x94K\x02\x8c\x04fwap\x94K\x02\x8c\x04form\x94K\x02\x8c\x05input\x94K\x06\x8c\x06button\x94K\x04\x8c\x08noscript\x94K\x06u.', 'http://yandex.ru')
+2021-05-24 15:17:52,066  - COMMIT
+2021-05-24 15:17:57,807  - http://vkontakte.ru
+2021-05-24 15:17:59,345  - SELECT tagcounter_db.site_name, tagcounter_db.url, tagcounter_db.date_time, tagcounter_db.tagcount 
+FROM tagcounter_db 
+WHERE tagcounter_db.url = ?
+2021-05-24 15:17:59,345  - [generated in 0.00029s] ('http://vkontakte.ru',)
+2021-05-24 15:17:59,348  - INSERT INTO tagcounter_db (site_name, url, date_time, tagcount) VALUES (?, ?, ?, ?)
+2021-05-24 15:17:59,353  - [generated in 0.00445s] ('vkontakte', 'http://vkontakte.ru', datetime.datetime(2021, 5, 24, 15, 17, 59, 347715), b'\x80\x04\x95\xea\x00\x00\x00\x00\x00\x00\x00}\x94(\x8c\x04html\x94K\x02\x8c\x04head\x94K\x02\x8c\x04meta\x94K\x1c\x8c\x04base\x94K\x02\x8c\x04link\x ... (303 characters truncated) ... 94K\x06\x8c\x06button\x94K\x02\x8c\x01g\x94K\x02\x8c\x01i\x94K\x04\x8c\x02ul\x94K\x04\x8c\x02li\x94K\n\x8c\x03img\x94K\x04\x8c\x08noscript\x94K\x02u.')
+2021-05-24 15:17:59,356  - COMMIT
+2021-05-24 15:18:12,375  - SELECT tagcounter_db.tagcount 
+FROM tagcounter_db 
+WHERE tagcounter_db.url = ?
+2021-05-24 15:18:12,376  - [generated in 0.00072s] ('http://vkontakte.ru',)
+2021-05-24 21:13:15,388  - SELECT tagcounter_db.tagcount 
+FROM tagcounter_db 
+WHERE tagcounter_db.url = ?
+2021-05-24 21:13:15,388  - [generated in 0.00041s] ('http://yandex.ru',)
+2021-05-24 21:13:32,187  - http://vk.com
+2021-05-24 21:13:34,427  - SELECT tagcounter_db.site_name, tagcounter_db.url, tagcounter_db.date_time, tagcounter_db.tagcount 
+FROM tagcounter_db 
+WHERE tagcounter_db.url = ?
+2021-05-24 21:13:34,428  - [generated in 0.00044s] ('http://vk.com',)
+2021-05-24 21:13:34,429  - INSERT INTO tagcounter_db (site_name, url, date_time, tagcount) VALUES (?, ?, ?, ?)
+2021-05-24 21:13:34,430  - [generated in 0.00029s] ('vk', 'http://vk.com', datetime.datetime(2021, 5, 24, 21, 13, 34, 429191), b'\x80\x04\x95\xe4\x00\x00\x00\x00\x00\x00\x00}\x94(\x8c\x04html\x94K\x02\x8c\x04head\x94K\x02\x8c\x04meta\x94K\x1c\x8c\x04base\x94K\x02\x8c\x04link\x ... (285 characters truncated) ... x04\x8c\x05input\x94K\x06\x8c\x06button\x94K\x02\x8c\x01i\x94K\x04\x8c\x02ul\x94K\x04\x8c\x02li\x94K\n\x8c\x03img\x94K\x04\x8c\x08noscript\x94K\x02u.')
+2021-05-24 21:13:34,432  - COMMIT
+2021-05-24 21:13:44,705  - SELECT tagcounter_db.tagcount 
+FROM tagcounter_db 
+WHERE tagcounter_db.url = ?
+2021-05-24 21:13:44,705  - [generated in 0.00050s] ('http://vkontakte.ru',)
+2021-05-24 21:13:53,196  - SELECT tagcounter_db.tagcount 
+FROM tagcounter_db 
+WHERE tagcounter_db.url = ?
+2021-05-24 21:13:53,197  - [generated in 0.00148s] ('http://vkontakte.ru',)
+2021-05-24 21:13:56,214  - http://vkontakte.ru

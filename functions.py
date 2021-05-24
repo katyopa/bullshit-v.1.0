@@ -19,7 +19,7 @@ def add_protocol_to_url(url):
 
 # parse yaml-file
 def parse_yaml_file():
-    a_yaml_file = open("synonyms.yaml")
+    a_yaml_file = open(r'C:\Users\Katsiaryna_Lastouska\Documents\Learn To Code Python\learn-to-code-with-python-incomplete\learn-to-code-with-python\bullshit-v.1.0\synonyms.yaml')
     parsed_yaml_file = yaml.load(a_yaml_file, Loader=yaml.FullLoader)
     
     return parsed_yaml_file
@@ -87,6 +87,6 @@ class ContaTags:
         # print(z)  # a list with a the collections.Counter Object
         # list with the collections.Counter Object to a dict
         tag_dict = dict(z[0])
-        print(tag_dict)
-        
+        # print(tag_dict)
+
         return tag_dict

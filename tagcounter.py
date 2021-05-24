@@ -15,26 +15,24 @@ logging.basicConfig(level=logging.INFO,
                     format='%(asctime)s  - %(message)s')
 
 
-# Create the parser
 def parse_tagcounter_args():
-    if __name__ == "__main__":
-        my_parser = argparse.ArgumentParser(prog='tagcounter',
-                                            description='Count tags of an html-file')
-        # Add the arguments
-        my_parser.add_argument('--get',
-                               type=str,
-                               help='get tags and their counts')
-        my_parser.add_argument('--view',
-                               help='fetch data from the database')
+    """Creates the arguments parser, adds 2 arguments."""   
+    my_parser = argparse.ArgumentParser(prog='tagcounter',
+                                        description='Count tags of an html-file')
+    # Add the arguments
+    my_parser.add_argument('--get',
+                           type=str,
+                           help='get tags and their counts')
+    my_parser.add_argument('--view',
+                           help='fetch data from the database')
 
     # Execute the parse_args() method
-    args = my_parser.parse_args()
-    # print(type(args))
-
-    return args
+    return my_parser.parse_args()
 
 
-args = parse_tagcounter_args()
+if __name__ == "__main__":
+    args = parse_tagcounter_args()
+
 
 parsed_yaml_file = fc.parse_yaml_file()  # parse yaml-file
 
@@ -76,7 +74,7 @@ if args.get is not None:  # tagcounter --get url
         print("Data successfully loaded into Database!")
 
     connection.close()
-    # print(cmd_tagcount_dict)
+    print(cmd_tagcount_dict)
 
 elif args.view is not None:  # tagcounter --view url
     # check if synonym exists in synonyms.yaml, then use it
