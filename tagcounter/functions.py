@@ -9,7 +9,7 @@ import os
 from collections import Counter
 from tld import get_tld
 import tkinter as tk
-from database import select_from_db
+from tagcounter.database import select_from_db
 import argparse
 
 
@@ -132,56 +132,54 @@ class GuiWindow:
                 sticky=tk.E,
                 pady=10,
                 padx=10)
-        txt = tk.Entry(window, width=30)
-        txt.focus()
-        txt.grid(column=3,
+        self.txt = tk.Entry(window, width=30)
+        self.txt.focus()
+        self.txt.grid(column=3,
                 row=0,
                 columnspan=2,
                 sticky=tk.W+tk.E,
                 pady=10,
                 padx=10)
-        output = tk.Text(window, height=10, width=45)
-        output.grid(column=2, row=4, columnspan=3, pady=10, padx=10)
-        scroll = tk.Scrollbar(command=output.yview)
+        self.output = tk.Text(window, height=10, width=45)
+        self.output.grid(column=2, row=4, columnspan=3, pady=10, padx=10)
+        scroll = tk.Scrollbar(command=self.output.yview)
         scroll.grid(column=5, row=4)
-        output.config(yscrollcommand=scroll.set)
-        statusbar = tk.Label(window,
+        self.output.config(yscrollcommand=scroll.set)
+        self.statusbar = tk.Label(window,
                             text="waiting for the url…",
                             bd=1, relief=tk.SUNKEN,
                             anchor=tk.W)
-        statusbar.grid(column=0,
+        self.statusbar.grid(column=0,
                         row=6,
                         columnspan=5,
                         sticky=tk.W+tk.E,
                         pady=10,
                         padx=10)
-
-        def load_from_db():
-            gui_user_input = txt.get()
-            gui_user_input = get_synonym(gui_user_input)              # check synonym in yaml file
-            gui_full_url = add_protocol_to_url(gui_user_input)        # add protocol to url
-            gui_results = select_from_db(gui_full_url)                # select from DB
-            gui_results = gui_results[0][0]                           # extract pickled object
-            gui_unpickled_result = unpickle_db_results(gui_results)   # unpickle results 
-            output.delete(1.0, tk.END)                                # clean the output box before insert
-            result_load_from_db = "{}: ".format(txt.get()) + str(gui_unpickled_result)  # create output
-            output.insert(tk.END, result_load_from_db)                # insert output to the textbox
-            statusbar.configure(text="I've counted tags for you!")    # update status bar
-
-        def load_from_internet():
-            gui_user_input_inet = txt.get()
-            gui_user_input_inet = get_synonym(gui_user_input_inet)
-            SampleObject = CountTags(gui_user_input_inet)
-            gui_tagcount_dict = SampleObject.count_tags()
-            result_load_from_internet = "{}: ".format(txt.get()) + str(gui_tagcount_dict)
-            output.delete(1.0, tk.END)                                # clean the output box before insert
-            output.insert(tk.END, result_load_from_internet)
-            statusbar.configure(text="I've counted tags for you!")
-
         btn_internet = tk.Button(window,
                                 text="Download From Internet",
-                                command=load_from_internet)
+                                command=self.load_from_internet)
         btn_internet.grid(column=4, row=3, padx=10, pady=10, sticky=tk.E)
-        btn_db = tk.Button(window, text="Show From DB", command=load_from_db)
+        btn_db = tk.Button(window, text="Show From DB", command=self.load_from_db)
         btn_db.grid(column=3, row=3, sticky=tk.W, pady=10, padx=10)
         window.mainloop()
+
+    def load_from_db(self):
+        gui_user_input = self.txt.get()
+        gui_user_input = get_synonym(gui_user_input)                   # check synonym in yaml file
+        gui_full_url = add_protocol_to_url(gui_user_input)             # add protocol to url
+        gui_results = select_from_db(gui_full_url)                     # select from DB                   
+        gui_unpickled_result = unpickle_db_results(gui_results)        # unpickle results 
+        self.output.delete(1.0, tk.END)                                # clean the output box before insert
+        result_load_from_db = "{}: ".format(self.txt.get()) + str(gui_unpickled_result)  # create output
+        self.output.insert(tk.END, result_load_from_db)                # insert output to the textbox
+        self.statusbar.configure(text="I've counted tags for you!")    # update status bar
+
+    def load_from_internet(self):
+        gui_user_input_inet = self.txt.get()
+        gui_user_input_inet = get_synonym(gui_user_input_inet)
+        SampleObject = CountTags(gui_user_input_inet)
+        gui_tagcount_dict = SampleObject.count_tags()
+        result_load_from_internet = "{}: ".format(self.txt.get()) + str(gui_tagcount_dict)
+        self.output.delete(1.0, tk.END)                                # clean the output box before insert
+        self.output.insert(tk.END, result_load_from_internet)
+        self.statusbar.configure(text="I've counted tags for you!")

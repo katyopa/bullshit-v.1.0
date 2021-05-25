@@ -36,7 +36,7 @@ def select_from_db(full_url):
     results = connection.execute(select_data).fetchall()
     connection.close()
 
-    return results
+    return results[0][0]                                    # extract pickled object from the results list
 
 
 engine = sql.create_engine('sqlite:///tags.db', echo=True)  # вот здесь была ошибка - каждый раз создавало
