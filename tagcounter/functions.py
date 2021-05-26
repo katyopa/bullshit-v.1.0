@@ -38,7 +38,6 @@ def parse_yaml_file():
     """Parse yaml-file."""
     # move up directory to find synonyms.yaml
     path = os.path.abspath((os.path.dirname(os.getcwd()) + '\\synonyms.yaml'))
-    print(path)
     a_yaml_file = open(path, 'r', encoding="utf8")
     parsed_yaml_file = yaml.load(a_yaml_file, Loader=yaml.FullLoader)
 

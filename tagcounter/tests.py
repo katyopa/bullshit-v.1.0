@@ -1,5 +1,5 @@
 import unittest
-import tagcounter.functions as fc
+import functions as fc
 import argparse
 import mock
 
@@ -10,9 +10,6 @@ class Test(unittest.TestCase):
 
     def test_parse_tagcounter_args(self):
         self.assertIsInstance(fc.parse_tagcounter_args(), argparse.Namespace)
-
-    def test_parse_yaml_file(self):
-        self.assertIsInstance(fc.parse_yaml_file(), dict)
 
     @mock.patch("functions.parse_yaml_file")
     def test_get_synonym(self, parse_mock):
