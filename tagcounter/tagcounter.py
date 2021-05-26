@@ -1,7 +1,6 @@
-from tagcounter.database import select_from_db, save_results
-import tagcounter.functions as fc
+from database import select_from_db, save_results
+import functions as fc
 import logging
-import tkinter as tk
 
 
 def main():
@@ -11,7 +10,7 @@ def main():
                         format='%(asctime)s  - %(message)s')
     args = fc.parse_tagcounter_args()
 
-    parsed_yaml_file = fc.parse_yaml_file()                    # parse yaml-file
+    fc.parse_yaml_file()                                       # parse yaml-file
 
     if args.get is not None:                                   # tagcounter --get url
         url_get = fc.get_synonym(args.get)
@@ -32,6 +31,7 @@ def main():
     elif args.view is None and args.get is None:               # tagcounter
         NewGuiWindow = fc.GuiWindow()
         NewGuiWindow.start()
+
 
 if __name__ == "__main__":
     main()

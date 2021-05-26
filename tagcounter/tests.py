@@ -1,6 +1,5 @@
 import unittest
 import tagcounter.functions as fc
-import tagcounter as tc
 import argparse
 import mock
 
