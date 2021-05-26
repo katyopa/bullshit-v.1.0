@@ -14,8 +14,8 @@ def main():
 
     if args.get is not None:                                   # tagcounter --get url
         url_get = fc.get_synonym(args.get)
-        Sample = fc.CountTags(url_get)
-        tagcount_dict = Sample.count_tags()                    # returns a dictionary object
+        count_tags_get = fc.CountTags(url_get)
+        tagcount_dict = count_tags_get.count_tags()            # returns a dictionary object
         pickled_tag_dict = fc.pickle_tag_dict(tagcount_dict)   # pickle dict to write to db
         full_url_get = fc.add_protocol_to_url(url_get)
         domain = fc.get_domain_site_by_url(full_url_get)       # extract 2nd level domain name
@@ -29,8 +29,8 @@ def main():
         print(fc.unpickle_db_results(results))                 # unpickle results from DB
 
     elif args.view is None and args.get is None:               # tagcounter
-        NewGuiWindow = fc.GuiWindow()
-        NewGuiWindow.start()
+        new_gui_window = fc.GuiWindow()
+        new_gui_window.start()
 
 
 if __name__ == "__main__":

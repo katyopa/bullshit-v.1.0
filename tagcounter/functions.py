@@ -181,8 +181,8 @@ class GuiWindow:
     def load_from_internet(self):
         gui_user_input_inet = self.txt.get()
         gui_user_input_inet = get_synonym(gui_user_input_inet)
-        SampleObject = CountTags(gui_user_input_inet)
-        gui_tagcount_dict = SampleObject.count_tags()
+        count_tags_gui = CountTags(gui_user_input_inet)
+        gui_tagcount_dict = count_tags_gui.count_tags()
         result_load_from_internet = "{}: ".format(self.txt.get()) + str(gui_tagcount_dict)
         self.output.delete(1.0, tk.END)                             # clean output box before insert
         self.output.insert(tk.END, result_load_from_internet)
