@@ -2,12 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="tagcounter",
-    packages=find_packages(),
-    entry_points={
-        "console_scripts": [
-            "tagcounter = tagcounter.tagcounter:main",
-        ],
-    },
+    packages=find_packages(),   
     install_requires=[
         "beautifulsoup4 == 4.9.3",
         "bs4 == 0.0.1",
